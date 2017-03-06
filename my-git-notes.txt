@@ -21,3 +21,6 @@ git push -f origin master
 
 # Update my local repository from remote master
 git pull <uri>
+
+# Change a file, then push update to remote repository
+git push -f origin master
