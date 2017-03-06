@@ -7,10 +7,10 @@ Git notes
 5. git commit -m 'Why my changes'
 6. git status
 
-Branches
+# Branches
 git branch MyBranch   # Create branch
 git checkout MyBranch # Switch to MyBranch (vs. working in master branch)
 # add, change files, commit...
 # merge MyBranch to master
-git checkout master
+git checkout master # checkout target branch
 git merge MyBranch
