@@ -17,4 +17,7 @@ git merge MyBranch
 
 # Push my local repository to a GitHib repository
 git remote add origin <uri> #, e.g., https://github.com/petejansz/MyLearningGitRepo
-push -f origin master
+git push -f origin master
+
+# Update my local repository from remote master
+git pull <uri>
