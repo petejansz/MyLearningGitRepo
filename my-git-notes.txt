@@ -14,3 +14,7 @@ git checkout MyBranch # Switch to MyBranch (vs. working in master branch)
 # merge MyBranch to master
 git checkout master # checkout target branch
 git merge MyBranch
+
+# Push my local repository to a GitHib repository
+git remote add origin <uri> #, e.g., https://github.com/petejansz/MyLearningGitRepo
+push -f origin master
