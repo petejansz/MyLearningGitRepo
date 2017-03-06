@@ -6,3 +6,11 @@ Git notes
 4. change files...
 5. git commit -m 'Why my changes'
 6. git status
+
+Branches
+git branch MyBranch   # Create branch
+git checkout MyBranch # Switch to MyBranch (vs. working in master branch)
+# add, change files, commit...
+# merge MyBranch to master
+git checkout master
+git merge MyBranch
