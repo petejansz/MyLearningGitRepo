@@ -1,5 +1,9 @@
 Git notes
 
+###############################################################################
+#### Getting started
+###############################################################################
+
 # Clone (get/copy to local) a GitHib (a remote) repository
 git clone <uri> #, e.g., https://github.com/petejansz/MyLearningGitRepo
 
@@ -8,11 +12,16 @@ git clone <uri> #, e.g., https://github.com/petejansz/MyLearningGitRepo
 2. touch .gitignore; edit add files to not add to VSC
 3. git add . # 'stage', add all files, dirs but are not commited
 4. change files...
-5. git commit -m 'Why my changes'
-6. git status
+# revert/undo staged changes:
+# git reset HEAD <file>
+# to undo unstaged files:
+# git discard <file>
+5. # Commit changes to local repo:
+6. git commit -m 'Why my changes'
+7. git status
 
-# Push my local repository to my new remote GitHib repository
-1. git remote add origin <uri> #, e.g., https://github.com/petejansz/MyLearningGitRepo
+# Push my local repo (committed changes) to remote GitHib repository:
+1. # optional: git remote add origin <uri> #, e.g., https://github.com/petejansz/MyLearningGitRepo
 2. git push -f origin master
 
 # Update my local repository from remote master
