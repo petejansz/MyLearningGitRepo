@@ -1,6 +1,9 @@
 Git notes
 
-# Create a local repository:
+# Clone (get/copy to local) a GitHib (a remote) repository
+git clone <uri> #, e.g., https://github.com/petejansz/MyLearningGitRepo
+
+# Create a new project, local repository:
 1. git init
 2. touch .gitignore; edit add files to not add to VSC
 3. git add . # 'stage', add all files, dirs but are not commited
