@@ -19,7 +19,7 @@ git pull <uri>
 git diff --name-only master origin/master
 
 # Change a file, then push update to remote repository
-git commit -m 'Why my changes' [filename ...]
+git commit [-a | filename ...] -m 'Why my changes'
 git push -f origin master
 
 # Branches
