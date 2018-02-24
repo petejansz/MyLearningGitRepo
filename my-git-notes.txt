@@ -21,8 +21,14 @@ git pull <uri>
 # List filenames with differences between local and remote repository:
 git diff --name-only master origin/master
 
-# Change a file, add or commit changes to local repo:
+# Change a file, stage and or commit changes to local repo:
+# git add <filename> # stages a file, but does not commit changes.
+# to revert/undo staged changes:
+git reset HEAD <file>
+
+# Commit changes to local repo:
 git commit [-a | filename ...] -m 'Why my changes'
+
 # Push local repo changes to remote repository
 git push -f origin master
 
