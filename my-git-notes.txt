@@ -21,8 +21,9 @@ git pull <uri>
 # List filenames with differences between local and remote repository:
 git diff --name-only master origin/master
 
-# Change a file, then push update to remote repository
+# Change a file, add or commit changes to local repo:
 git commit [-a | filename ...] -m 'Why my changes'
+# Push local repo changes to remote repository
 git push -f origin master
 
 # Branches
