@@ -32,7 +32,9 @@ git commit [-a | filename ...] -m 'Why my changes'
 # Push local repo changes to remote repository
 git push -f origin master
 
-# Branches
+###############################################################################
+# Branches, branching
+###############################################################################
 git branch MyBranch   # Create branch
 git checkout MyBranch # Switch to MyBranch (vs. working in master branch)
 # add, change files, commit...
