@@ -9,17 +9,17 @@ Convert CSV file to an Excel workbook, using the PSExcel PowerShell module.
 http://ramblingcookiemonster.github.io/PSExcel-Intro/
 
 USAGE:
-	csv2xlsx -csvFilename <csvfile> -worksheetName <string> -xlsxWorkbook <path/filename>
-	
+    csv2xlsx -csvFilename <csvfile> -worksheetName <string> -xlsxWorkbook <path/filename>
+
 .EXAMPLE
     csv2xlsx -csvFilename .\report.csv -worksheetName 'FOO BAH' -xlsxWorkbook .\abc
 #>
 
 param
 (
-	[string]$csvFilename,
-	[string]$xlsxWorkbook, # = "$workbookDir\CMIPS_MA_Scripts-EnvCtrl-Report.xlsx"
-	[string]$worksheetName
+    [string]$csvFilename,
+    [string]$xlsxWorkbook, # = "$workbookDir\CMIPS_MA_Scripts-EnvCtrl-Report.xlsx"
+    [string]$worksheetName
 )
 
 Import-Module PSExcel
@@ -31,12 +31,12 @@ $ErrorActionPreference = "stop"
 function convertCsv2Excel( $csvObj, [string]$xlsxWorkbook, [string]$worksheetName )
 {
     Export-XLSX `
-    -Path $xlsxWorkbook `
-    -InputObject $csvObj `
-    -WorksheetName $worksheetName `
-    -Force -ClearSheet -AutoFit -Table `
-    -ErrorAction Stop `
-    -TableStyle Medium2
+        -Path $xlsxWorkbook `
+        -InputObject $csvObj `
+        -WorksheetName $worksheetName `
+        -Force -ClearSheet -AutoFit -Table `
+        -ErrorAction Stop `
+        -TableStyle Medium2
     $excelObj = New-Excel -Path $xlsxWorkbook
     return $excelObj
 }
@@ -48,21 +48,21 @@ function indicateException( $excelObj, [int]$rowNr, [int]$startColNr, [int]$endC
 {
     # Filename
     $excelObj | Get-WorkSheet | Format-Cell `
-    -StartRow $rowNr `
-    -EndRow $rowNr `
-    -StartColumn 1 `
-    -EndColumn 1 `
-    -Bold $True `
-    -BackgroundColor $bgColor
+        -StartRow $rowNr `
+        -EndRow $rowNr `
+        -StartColumn 1 `
+        -EndColumn 1 `
+        -Bold $True `
+        -BackgroundColor $bgColor
 
     # Count values
     $excelObj | Get-WorkSheet | Format-Cell `
-    -StartRow $rowNr `
-    -EndRow $rowNr `
-    -StartColumn $startColNr `
-    -EndColumn $endColNr `
-    -Bold $True `
-    -BackgroundColor $bgColor
+        -StartRow $rowNr `
+        -EndRow $rowNr `
+        -StartColumn $startColNr `
+        -EndColumn $endColNr `
+        -Bold $True `
+        -BackgroundColor $bgColor
 
     return $excelObj
 }
@@ -86,7 +86,7 @@ function setWorkbookIndications( $excelObj, [string]$csvFilename )
     {
         $rowNr++
 
-        if ($line -match "Name,") {continue}
+        if ($line -match "Name,") { continue }
 
         $values = $line.split(',')
         #0 Name,
@@ -95,11 +95,11 @@ function setWorkbookIndications( $excelObj, [string]$csvFilename )
         #3 WMB Process Count,
         #4 Exception,
         #5 Backout
-        $name =                $values[$nameColNr              - 1]
-        [int]$archiveCount =   $values[$archFileRecordCntColNr - 1].trim()
-        [int]$wmbCount =       $values[$wmbProcCntColNr        - 1].trim()
-        [int]$exceptionCount = $values[$exceptionCntColNr      - 1].trim()
-        [int]$backoutCount =   $values[$backoutCntColNr        - 1].trim()
+        $name = $values[$nameColNr - 1]
+        [int]$archiveCount = $values[$archFileRecordCntColNr - 1].trim()
+        [int]$wmbCount = $values[$wmbProcCntColNr - 1].trim()
+        [int]$exceptionCount = $values[$exceptionCntColNr - 1].trim()
+        [int]$backoutCount = $values[$backoutCntColNr - 1].trim()
 
         if ($wmbCount -ne $archiveCount)
         {
@@ -127,7 +127,7 @@ try
 {
     rm $xlsxWorkbook -ErrorAction SilentlyContinue
 }
-catch{}
+catch { }
 
 $csvObj = Import-Csv $csvFilename
 $excelObj = convertCsv2Excel $csvObj $xlsxWorkbook $worksheetName
